@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Балкон Плюс Иркутск</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0B2545',
+            secondary: '#13315C',
+            accent: '#FFB200',
+          },
+          fontFamily: {
+            heading: ['Manrope', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: #1A1F2E; background: #F4F7FB; margin: 0; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Manrope', sans-serif; }
+    .animate-on-scroll { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .animate-on-scroll.visible { opacity: 1; transform: translateY(0); }
+    /* Layout guard: force all top-level elements to stack vertically */
+    body > header, body > section, body > footer, body > nav,
+    #lp-root > header, #lp-root > section, #lp-root > footer, #lp-root > nav {
+      display: block !important;
+      width: 100% !important;
+      float: none !important;
+    }
+    #lp-root {
+      display: flex !important;
+      flex-direction: column !important;
+      width: 100% !important;
+      overflow-x: hidden !important;
+    }
+  </style>
+</head>
+<body style="display:block; width:100%; margin:0; padding:0;">
+<div id="lp-root">
+<header class="sticky top-0 z-50 backdrop-blur-xl bg-[#F4F7FB]/85 border-b border-[#0B2545]/10">
+  <nav class="max-w-6xl mx-auto px-6 sm:px-8 py-4 flex items-center justify-between gap-4">
+    <a href="https://balconplusirk.ru" class="flex items-center gap-2 shrink-0">
+      <span class="w-9 h-9 rounded-lg bg-[#0B2545] flex items-center justify-center">
+        <i data-lucide="square-stack" class="w-5 h-5 text-[#FFB200]"></i>
+      </span>
+      <span style="font-family: 'Manrope', sans-serif;" class="text-xl font-extrabold text-[#0B2545] tracking-tight">Балкон<span class="text-[#FFB200]">Плюс</span></span>
+    </a>
+
+    <div class="hidden lg:flex items-center gap-6" style="font-family: 'Inter', sans-serif;">
+      <a href="#services" class="text-sm font-medium text-[#1A1F2E] hover:text-[#0B2545] transition-colors">Услуги</a>
+      <a href="#gallery" class="text-sm font-medium text-[#1A1F2E] hover:text-[#0B2545] transition-colors">Наши работы</a>
+      <a href="#process" class="text-sm font-medium text-[#1A1F2E] hover:text-[#0B2545] transition-colors">Как мы работаем</a>
+      <a href="#about" class="text-sm font-medium text-[#1A1F2E] hover:text-[#0B2545] transition-colors">О компании</a>
+      <a href="#stats" class="text-sm font-medium text-[#1A1F2E] hover:text-[#0B2545] transition-colors">Достижения</a>
+      <a href="#contact" class="text-sm font-medium text-[#1A1F2E] hover:text-[#0B2545] transition-colors">Контакты</a>
+    </div>
+
+    <div class="hidden lg:flex items-center gap-3 shrink-0">
+      <a href="tel:+73952747755" class="flex items-center gap-1.5 text-sm font-semibold text-[#0B2545] whitespace-nowrap">
+        <i data-lucide="phone" class="w-4 h-4 shrink-0"></i>
+        <span class="whitespace-nowrap">+7 (3952) 74-77-55</span>
+      </a>
+      <a href="#contact" class="px-4 py-2.5 bg-[#0B2545] text-white text-sm font-semibold rounded-lg hover:bg-[#13315C] transition-colors whitespace-nowrap" style="font-family: 'Inter', sans-serif;">Замер бесплатно</a>
+    </div>
+
+    <button id="mobile-toggle" class="lg:hidden p-2 text-[#0B2545]" aria-label="Меню">
+      <i data-lucide="menu" class="w-6 h-6"></i>
+    </button>
+  </nav>
+
+  <div id="mobile-menu" class="hidden lg:hidden border-t border-[#0B2545]/10 bg-[#F4F7FB]" style="font-family: 'Inter', sans-serif;">
+    <div class="px-6 py-6 flex flex-col gap-4">
+      <a href="#services" class="text-base font-medium text-[#1A1F2E]">Услуги</a>
+      <a href="#gallery" class="text-base font-medium text-[#1A1F2E]">Наши работы</a>
+      <a href="#process" class="text-base font-medium text-[#1A1F2E]">Как мы работаем</a>
+      <a href="#about" class="text-base font-medium text-[#1A1F2E]">О компании</a>
+      <a href="#stats" class="text-base font-medium text-[#1A1F2E]">Достижения</a>
+      <a href="#contact" class="text-base font-medium text-[#1A1F2E]">Контакты</a>
+      <a href="tel:+73952747755" class="flex items-center gap-2 text-sm font-semibold text-[#0B2545] pt-2 border-t border-[#0B2545]/10 whitespace-nowrap">
+        <i data-lucide="phone" class="w-4 h-4"></i>
+        +7 (3952) 74-77-55
+      </a>
+      <a href="#contact" class="px-5 py-3 bg-[#0B2545] text-white text-sm font-semibold rounded-lg text-center">Замер бесплатно</a>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      const t = document.getElementById('mobile-toggle');
+      const m = document.getElementById('mobile-menu');
+      if (t && m) t.addEventListener('click', () => m.classList.toggle('hidden'));
+    })();
+  </script>
+</header>
+
+<section id="hero" class="relative bg-[#F4F7FB] overflow-hidden">
+  <div class="absolute -top-32 -left-32 w-96 h-96 bg-[#0B2545]/5 rounded-full blur-3xl"></div>
+  <div class="absolute -bottom-32 -right-32 w-96 h-96 bg-[#FFB200]/10 rounded-full blur-3xl"></div>
+
+  <div class="relative max-w-6xl mx-auto px-4 sm:px-6 md:px-8 py-12 sm:py-20 md:py-28 lg:py-32">
+    <div class="grid lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16 items-center">
+
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 sm:px-4 py-2 bg-white border border-[#0B2545]/10 rounded-full mb-5 sm:mb-6 shadow-sm">
+          <span class="w-2 h-2 bg-[#FFB200] rounded-full animate-pulse"></span>
+          <span class="text-[10px] sm:text-xs font-semibold uppercase tracking-wide text-[#0B2545]" style="font-family: 'Inter', sans-serif;">Иркутск · Шелехов · с 2013 года</span>
+        </div>
+
+        <h1 style="font-family: 'Manrope', sans-serif;" class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-[#0B2545] leading-[1.05] tracking-tight mb-5 sm:mb-6">
+          Балкон Плюс — <span class="text-[#FFB200]">тепло</span> и уют вашего&nbsp;балкона
+        </h1>
+
+        <p class="text-base sm:text-lg md:text-xl leading-relaxed text-[#1A1F2E]/80 mb-7 sm:mb-8 max-w-xl" style="font-family: 'Inter', sans-serif;">
+          Остекление, утепление и отделка балконов и лоджий под ключ в Иркутске и Шелехове. Собственное производство, монтаж за 1 день, гарантия 5 лет.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8 sm:mb-10" style="font-family: 'Inter', sans-serif;">
+          <a href="#contact" class="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3.5 sm:py-4 bg-[#0B2545] text-white font-semibold rounded-lg hover:bg-[#13315C] transition-all hover:shadow-xl hover:shadow-[#0B2545]/20">
+            <i data-lucide="calculator" class="w-5 h-5"></i>
+            Рассчитать стоимость
+          </a>
+          <a href="tel:+79087717676" class="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3.5 sm:py-4 bg-white border-2 border-[#0B2545] text-[#0B2545] font-semibold rounded-lg hover:bg-[#0B2545] hover:text-white transition-all">
+            <i data-lucide="phone-call" class="w-5 h-5"></i>
+            +7-908-771-76-76
+          </a>
+        </div>
+
+        <div class="grid grid-cols-3 gap-2 sm:gap-4 max-w-lg" style="font-family: 'Inter', sans-serif;">
+          <div class="flex items-start gap-1.5 sm:gap-2">
+            <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-[#0B2545]/5 flex items-center justify-center flex-shrink-0">
+              <i data-lucide="shield-check" class="w-4 h-4 sm:w-5 sm:h-5 text-[#0B2545]"></i>
+            </div>
+            <div class="min-w-0">
+              <div class="text-xs sm:text-sm font-bold text-[#0B2545]">5 лет</div>
+              <div class="text-[10px] sm:text-xs text-[#1A1F2E]/60">гарантии</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-1.5 sm:gap-2">
+            <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-[#0B2545]/5 flex items-center justify-center flex-shrink-0">
+              <i data-lucide="ruler" class="w-4 h-4 sm:w-5 sm:h-5 text-[#0B2545]"></i>
+            </div>
+            <div class="min-w-0">
+              <div class="text-xs sm:text-sm font-bold text-[#0B2545]">Замер</div>
+              <div class="text-[10px] sm:text-xs text-[#1A1F2E]/60">бесплатно</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-1.5 sm:gap-2">
+            <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-[#0B2545]/5 flex items-center justify-center flex-shrink-0">
+              <i data-lucide="hammer" class="w-4 h-4 sm:w-5 sm:h-5 text-[#0B2545]"></i>
+            </div>
+            <div class="min-w-0">
+              <div class="text-xs sm:text-sm font-bold text-[#0B2545]">Монтаж</div>
+              <div class="text-[10px] sm:text-xs text-[#1A1F2E]/60">за 1 день</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="relative">
+        <div class="absolute -inset-4 bg-gradient-to-br from-[#0B2545]/10 to-[#FFB200]/20 rounded-3xl blur-2xl"></div>
+        <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-white">
+          <img src="https://zgnpmogdjnnhpwewavnr.supabase.co/storage/v1/object/public/project-images/1a469850-4983-4bfc-951b-7dfbe195100d/1779612484561-l8q7r.PNG" alt="Панорамное остекление балкона с тёплой отделкой деревом и видом на город Иркутск" class="w-full h-[320px] sm:h-[420px] md:h-[520px] lg:h-[600px] object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0B2545]/40 via-transparent to-transparent"></div>
+        </div>
+
+        <div class="absolute top-2 right-2 sm:-top-4 sm:-right-4 bg-[#0B2545] text-white rounded-xl sm:rounded-2xl shadow-xl p-2.5 sm:p-4 border border-[#FFB200]/30" style="font-family: 'Inter', sans-serif;">
+          <div class="flex items-center gap-1.5 sm:gap-2">
+            <i data-lucide="star" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#FFB200] fill-[#FFB200]"></i>
+            <span class="text-xs sm:text-sm font-bold">от 15 000 ₽</span>
+          </div>
+          <div class="text-[10px] sm:text-xs text-white/70 mt-0.5 sm:mt-1">за стандартное окно</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+    (function(){
+      const t = document.getElementById('mobile-toggle');
+      const m = document.getElementById('mobile-menu');
+      if (t && m) t.addEventListener('click', () => m.classList.toggle('hidden'));
+    })();
+  </script>
+
+<section id="services" class="py-20 md:py-28 lg:py-32" style="background-color: #F4F7FB;">
+  <div class="max-w-6xl mx-auto px-6 sm:px-8">
+    <div class="text-center mb-16 animate-on-scroll">
+      <span class="inline-block px-4 py-1.5 rounded-full text-xs uppercase tracking-widest font-semibold mb-4" style="background-color: #FFB200; color: #0B2545; font-family: 'Inter', sans-serif;">Наши услуги</span>
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4" style="font-family: 'Manrope', sans-serif; color: #0B2545;">Прайс на остекление и отделку</h2>
+      <p class="text-lg max-w-2xl mx-auto" style="font-family: 'Inter', sans-serif; color: #1A1F2E;">Прозрачные цены без скрытых платежей. Работаем по Иркутску и Шелехову с выездом замерщика.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+      <div class="group bg-white rounded-2xl p-8 border border-slate-200 hover:border-[#0B2545] hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 animate-on-scroll">
+        <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform" style="background-color: #0B2545;">
+          <i data-lucide="square" class="w-7 h-7" style="color: #FFB200;"></i>
+        </div>
+        <h3 class="text-2xl font-bold mb-2" style="font-family: 'Manrope', sans-serif; color: #0B2545;">Окна стандартные</h3>
+        <p class="text-sm mb-4" style="font-family: 'Inter', sans-serif; color: #13315C;">Пластиковое окно 1300 × 1300 мм. Качественный профиль, энергосбережение.</p>
+        <div class="flex items-baseline gap-2 mb-6">
+          <span class="text-3xl font-bold" style="font-family: 'Manrope', sans-serif; color: #0B2545;">15 000 ₽</span>
+        </div>
+        <a href="#contact" class="block w-full text-center py-3 rounded-xl font-semibold transition-all hover:opacity-90" style="background-color: #0B2545; color: #ffffff; font-family: 'Inter', sans-serif;">Заказать</a>
+      </div>
+
+      <div class="group bg-white rounded-2xl p-8 border border-slate-200 hover:border-[#0B2545] hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 animate-on-scroll" style="transition-delay: 0.1s;">
+        <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform" style="background-color: #0B2545;">
+          <i data-lucide="layout-panel-left" class="w-7 h-7" style="color: #FFB200;"></i>
+        </div>
+        <h3 class="text-2xl font-bold mb-2" style="font-family: 'Manrope', sans-serif; color: #0B2545;">Лоджия с выносом</h3>
+        <p class="text-sm mb-4" style="font-family: 'Inter', sans-serif; color: #13315C;">Остекление лоджии с выносом по подоконнику и полной отделкой.</p>
+        <div class="flex items-baseline gap-2 mb-6">
+          <span class="text-xs uppercase tracking-wide" style="color: #13315C;">от</span>
+          <span class="text-3xl font-bold" style="font-family: 'Manrope', sans-serif; color: #0B2545;">22 500 ₽</span>
+        </div>
+        <a href="#contact" class="block w-full text-center py-3 rounded-xl font-semibold transition-all hover:opacity-90" style="background-color: #0B2545; color: #ffffff; font-family: 'Inter', sans-serif;">Заказать</a>
+      </div>
+
+      <div class="group relative rounded-2xl p-8 shadow-2xl hover:-translate-y-2 transition-all duration-300 animate-on-scroll" style="background-color: #0B2545;" style="transition-delay: 0.2s;">
+        <span class="absolute -top-3 right-6 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider" style="background-color: #FFB200; color: #0B2545; font-family: 'Inter', sans-serif;">Хит продаж</span>
+        <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform" style="background-color: #FFB200;">
+          <i data-lucide="home" class="w-7 h-7" style="color: #0B2545;"></i>
+        </div>
+        <h3 class="text-2xl font-bold mb-2 text-white" style="font-family: 'Manrope', sans-serif;">Остекление балкона</h3>
+        <p class="text-sm mb-4 text-slate-300" style="font-family: 'Inter', sans-serif;">Полное остекление балкона "под ключ" с гарантией 5 лет.</p>
+        <div class="flex items-baseline gap-2 mb-6">
+          <span class="text-3xl font-bold" style="font-family: 'Manrope', sans-serif; color: #FFB200;">45 000 ₽</span>
+        </div>
+        <a href="#contact" class="block w-full text-center py-3 rounded-xl font-semibold transition-all hover:opacity-90" style="background-color: #FFB200; color: #0B2545; font-family: 'Inter', sans-serif;">Заказать</a>
+      </div>
+
+      <div class="group bg-white rounded-2xl p-8 border border-slate-200 hover:border-[#0B2545] hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 animate-on-scroll">
+        <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform" style="background-color: #0B2545;">
+          <i data-lucide="door-closed" class="w-7 h-7" style="color: #FFB200;"></i>
+        </div>
+        <h3 class="text-2xl font-bold mb-2" style="font-family: 'Manrope', sans-serif; color: #0B2545;">Термо входная дверь</h3>
+        <p class="text-sm mb-4" style="font-family: 'Inter', sans-serif; color: #13315C;">Утеплённая входная дверь с терморазрывом для частных домов.</p>
+        <div class="flex items-baseline gap-2 mb-6">
+          <span class="text-xs uppercase tracking-wide" style="color: #13315C;">от</span>
+          <span class="text-3xl font-bold" style="font-family: 'Manrope', sans-serif; color: #0B2545;">25 000 ₽</span>
+        </div>
+        <a href="#contact" class="block w-full text-center py-3 rounded-xl font-semibold transition-all hover:opacity-90" style="background-color: #0B2545; color: #ffffff; font-family: 'Inter', sans-serif;">Заказать</a>
+      </div>
+
+      <div class="group bg-white rounded-2xl p-8 border border-slate-200 hover:border-[#0B2545] hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 animate-on-scroll">
+        <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform" style="background-color: #0B2545;">
+          <i data-lucide="wrench" class="w-7 h-7" style="color: #FFB200;"></i>
+        </div>
+        <h3 class="text-2xl font-bold mb-2" style="font-family: 'Manrope', sans-serif; color: #0B2545;">Ремонт и регулировка</h3>
+        <p class="text-sm mb-4" style="font-family: 'Inter', sans-serif; color: #13315C;">Регулировка фурнитуры, замена уплотнителей, устранение продуваний.</p>
+        <div class="flex items-baseline gap-2 mb-6">
+          <span class="text-xs uppercase tracking-wide" style="color: #13315C;">от</span>
+          <span class="text-3xl font-bold" style="font-family: 'Manrope', sans-serif; color: #0B2545;">500 ₽</span>
+        </div>
+        <a href="#contact" class="block w-full text-center py-3 rounded-xl font-semibold transition-all hover:opacity-90" style="background-color: #0B2545; color: #ffffff; font-family: 'Inter', sans-serif;">Заказать</a>
+      </div>
+
+      <div class="group bg-white rounded-2xl p-8 border border-slate-200 hover:border-[#0B2545] hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 animate-on-scroll">
+        <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform" style="background-color: #0B2545;">
+          <i data-lucide="door-open" class="w-7 h-7" style="color: #FFB200;"></i>
+        </div>
+        <h3 class="text-2xl font-bold mb-2" style="font-family: 'Manrope', sans-serif; color: #0B2545;">Межкомнатные двери</h3>
+        <p class="text-sm mb-4" style="font-family: 'Inter', sans-serif; color: #13315C;">Двери из массива и МДФ с установкой. Большой выбор цветов.</p>
+        <div class="flex items-baseline gap-2 mb-6">
+          <span class="text-xs uppercase tracking-wide" style="color: #13315C;">от</span>
+          <span class="text-3xl font-bold" style="font-family: 'Manrope', sans-serif; color: #0B2545;">5 000 ₽</span>
+        </div>
+        <a href="#contact" class="block w-full text-center py-3 rounded-xl font-semibold transition-all hover:opacity-90" style="background-color: #0B2545; color: #ffffff; font-family: 'Inter', sans-serif;">Заказать</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery" class="py-20 md:py-28 lg:py-32 bg-white">
+  <div class="max-w-6xl mx-auto px-6 sm:px-8">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-16 gap-6 animate-on-scroll">
+      <div>
+        <span class="inline-block px-4 py-1.5 rounded-full text-xs uppercase tracking-widest font-semibold mb-4" style="background-color: #FFB200; color: #0B2545; font-family: 'Inter', sans-serif;">Наши работы</span>
+        <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4" style="font-family: 'Manrope', sans-serif; color: #0B2545;">Балконы и лоджии под ключ</h2>
+        <p class="text-lg max-w-2xl" style="font-family: 'Inter', sans-serif; color: #1A1F2E;">Реальные объекты в Иркутске и Шелехове. Каждый балкон — индивидуальный проект.</p>
+      </div>
+      <a href="#contact" class="inline-flex items-center gap-2 font-semibold hover:gap-3 transition-all" style="color: #0B2545; font-family: 'Inter', sans-serif;">
+        Заказать такой же
+        <i data-lucide="arrow-right" class="w-5 h-5"></i>
+      </a>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="group relative overflow-hidden rounded-2xl aspect-[4/5] animate-on-scroll cursor-pointer">
+        <img src="https://zgnpmogdjnnhpwewavnr.supabase.co/storage/v1/object/public/project-images/1a469850-4983-4bfc-951b-7dfbe195100d/1779612497231-m1oyfm.PNG" alt="Панорамное остекление балкона с деревянной отделкой в Иркутске" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+        <div class="absolute inset-0 bg-gradient-to-t from-[#0B2545] via-[#0B2545]/40 to-transparent opacity-90"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-6">
+          <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-3" style="background-color: #FFB200; color: #0B2545;">Панорамное</span>
+          <h3 class="text-xl font-bold text-white" style="font-family: 'Manrope', sans-serif;">Балкон с панорамным остеклением</h3>
+          <p class="text-sm text-slate-300 mt-1" style="font-family: 'Inter', sans-serif;">Иркутск, ул. Лермонтова</p>
+        </div>
+      </div>
+
+      <div class="group relative overflow-hidden rounded-2xl aspect-[4/5] animate-on-scroll cursor-pointer" style="transition-delay: 0.1s;">
+        <img src="https://zgnpmogdjnnhpwewavnr.supabase.co/storage/v1/object/public/project-images/1a469850-4983-4bfc-951b-7dfbe195100d/1779612513084-2ibfea.PNG" alt="Утеплённая лоджия с виниловой отделкой и тёплым освещением" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+        <div class="absolute inset-0 bg-gradient-to-t from-[#0B2545] via-[#0B2545]/40 to-transparent opacity-90"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-6">
+          <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-3" style="background-color: #FFB200; color: #0B2545;">С выносом</span>
+          <h3 class="text-xl font-bold text-white" style="font-family: 'Manrope', sans-serif;">Лоджия с выносом и отделкой</h3>
+          <p class="text-sm text-slate-300 mt-1" style="font-family: 'Inter', sans-serif;">Шелехов, 2-й квартал</p>
+        </div>
+      </div>
+
+      <div class="group relative overflow-hidden rounded-2xl aspect-[4/5] animate-on-scroll cursor-pointer" style="transition-delay: 0.2s;">
+        <img src="https://zgnpmogdjnnhpwewavnr.supabase.co/storage/v1/object/public/project-images/1a469850-4983-4bfc-951b-7dfbe195100d/1779612522781-z3vhi.PNG" alt="Современный балкон с алюминиевыми раздвижными окнами и ламинатом" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+        <div class="absolute inset-0 bg-gradient-to-t from-[#0B2545] via-[#0B2545]/40 to-transparent opacity-90"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-6">
+          <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-3" style="background-color: #FFB200; color: #0B2545;">Алюминий</span>
+          <h3 class="text-xl font-bold text-white" style="font-family: 'Manrope', sans-serif;">Холодное остекление балкона</h3>
+          <p class="text-sm text-slate-300 mt-1" style="font-family: 'Inter', sans-serif;">Иркутск, мкр. Юбилейный</p>
+        </div>
+      </div>
+
+      <div class="group relative overflow-hidden rounded-2xl aspect-[4/5] animate-on-scroll cursor-pointer" style="transition-delay: 0.3s;">
+        <img src="https://placehold.co/800x1000?text=Тёплый+уютный+балкон+с+утеплёнными+стенами+минватой+пластиковыми+окнами+и+тёплым+полом+в+Иркутске+зимой" alt="Тёплый уютный балкон с утеплёнными стенами минеральной ватой, пластиковыми окнами и тёплым полом в Иркутске зимой" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+        <div class="absolute inset-0 bg-gradient-to-t from-[#0B2545] via-[#0B2545]/40 to-transparent opacity-90"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-6">
+          <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-3" style="background-color: #FFB200; color: #0B2545;">Тёплый</span>
+          <h3 class="text-xl font-bold text-white" style="font-family: 'Manrope', sans-serif;">Тёплый балкон с утеплением</h3>
+          <p class="text-sm text-slate-300 mt-1" style="font-family: 'Inter', sans-serif;">Иркутск, ул. Байкальская</p>
+        </div>
+      </div>
+
+      <div class="group relative overflow-hidden rounded-2xl aspect-[4/5] animate-on-scroll cursor-pointer" style="transition-delay: 0.4s;">
+        <img src="https://placehold.co/800x1000?text=Балкон+со+встроенными+белыми+шкафами+до+потолка+с+распашными+дверцами+и+полками+для+хранения+в+Иркутске" alt="Балкон со встроенными белыми шкафами до потолка с распашными дверцами и полками для хранения в Иркутске" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+        <div class="absolute inset-0 bg-gradient-to-t from-[#0B2545] via-[#0B2545]/40 to-transparent opacity-90"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-6">
+          <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-3" style="background-color: #FFB200; color: #0B2545;">Шкафы</span>
+          <h3 class="text-xl font-bold text-white" style="font-family: 'Manrope', sans-serif;">Балкон со встроенными шкафами</h3>
+          <p class="text-sm text-slate-300 mt-1" style="font-family: 'Inter', sans-serif;">Иркутск, мкр. Солнечный</p>
+        </div>
+      </div>
+
+      <div class="group relative overflow-hidden rounded-2xl aspect-[4/5] animate-on-scroll cursor-pointer md:col-span-2 lg:col-span-1" style="transition-delay: 0.5s;">
+        <img src="https://placehold.co/800x1000?text=Полная+реновация+балкона+с+новым+светлым+ламинатом+на+полу+и+панелями+ПВХ+на+стенах+с+современным+освещением" alt="Полная реновация балкона с новым светлым ламинатом на полу и панелями ПВХ на стенах с современным точечным освещением" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+        <div class="absolute inset-0 bg-gradient-to-t from-[#0B2545] via-[#0B2545]/40 to-transparent opacity-90"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-6">
+          <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-3" style="background-color: #FFB200; color: #0B2545;">Ремонт</span>
+          <h3 class="text-xl font-bold text-white" style="font-family: 'Manrope', sans-serif;">Реновация с новым полом</h3>
+          <p class="text-sm text-slate-300 mt-1" style="font-family: 'Inter', sans-serif;">Шелехов, 4-й квартал</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process" class="py-20 md:py-28 lg:py-32" style="background-color: #0B2545;">
+  <div class="max-w-6xl mx-auto px-6 sm:px-8">
+    <div class="text-center mb-20 animate-on-scroll">
+      <span class="inline-block px-4 py-1.5 rounded-full text-xs uppercase tracking-widest font-semibold mb-4" style="background-color: #FFB200; color: #0B2545; font-family: 'Inter', sans-serif;">Как мы работаем</span>
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white" style="font-family: 'Manrope', sans-serif;">От замера до сдачи балкона</h2>
+      <p class="text-lg max-w-2xl mx-auto text-slate-300" style="font-family: 'Inter', sans-serif;">Чёткий процесс работы без сюрпризов и переделок. Соблюдаем сроки и фиксируем цену в договоре.</p>
+    </div>
+
+    <div class="relative">
+      <div class="hidden lg:block absolute top-10 left-0 right-0 h-0.5" style="background: linear-gradient(to right, #FFB200 0%, #FFB200 100%); opacity: 0.3;"></div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 relative">
+        <div class="text-center animate-on-scroll">
+          <div class="relative inline-flex items-center justify-center w-20 h-20 rounded-2xl mb-6" style="background-color: #FFB200;">
+            <i data-lucide="ruler" class="w-9 h-9" style="color: #0B2545;"></i>
+            <span class="absolute -top-2 -right-2 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold" style="background-color: #ffffff; color: #0B2545; font-family: 'Manrope', sans-serif;">1</span>
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-white" style="font-family: 'Manrope', sans-serif;">Бесплатный замер</h3>
+          <p class="text-sm text-slate-300" style="font-family: 'Inter', sans-serif;">Замерщик приедет в удобное время по Иркутску или Шелехову и сделает точные замеры.</p>
+        </div>
+
+        <div class="text-center animate-on-scroll" style="transition-delay: 0.1s;">
+          <div class="relative inline-flex items-center justify-center w-20 h-20 rounded-2xl mb-6" style="background-color: #FFB200;">
+            <i data-lucide="calculator" class="w-9 h-9" style="color: #0B2545;"></i>
+            <span class="absolute -top-2 -right-2 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold" style="background-color: #ffffff; color: #0B2545; font-family: 'Manrope', sans-serif;">2</span>
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-white" style="font-family: 'Manrope', sans-serif;">Расчёт и договор</h3>
+          <p class="text-sm text-slate-300" style="font-family: 'Inter', sans-serif;">Подберём конструкцию и материалы под ваш бюджет, зафиксируем цену в договоре.</p>
+        </div>
+
+        <div class="text-center animate-on-scroll" style="transition-delay: 0.2s;">
+          <div class="relative inline-flex items-center justify-center w-20 h-20 rounded-2xl mb-6" style="background-color: #FFB200;">
+            <i data-lucide="hammer" class="w-9 h-9" style="color: #0B2545;"></i>
+            <span class="absolute -top-2 -right-2 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold" style="background-color: #ffffff; color: #0B2545; font-family: 'Manrope', sans-serif;">3</span>
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-white" style="font-family: 'Manrope', sans-serif;">Монтаж за 1 день</h3>
+          <p class="text-sm text-slate-300" style="font-family: 'Inter', sans-serif;">Опытные монтажники установят остекление и сделают отделку аккуратно и быстро.</p>
+        </div>
+
+        <div class="text-center animate-on-scroll" style="transition-delay: 0.3s;">
+          <div class="relative inline-flex items-center justify-center w-20 h-20 rounded-2xl mb-6" style="background-color: #FFB200;">
+            <i data-lucide="shield-check" class="w-9 h-9" style="color: #0B2545;"></i>
+            <span class="absolute -top-2 -right-2 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold" style="background-color: #ffffff; color: #0B2545; font-family: 'Manrope', sans-serif;">4</span>
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-white" style="font-family: 'Manrope', sans-serif;">Гарантия 5 лет</h3>
+          <p class="text-sm text-slate-300" style="font-family: 'Inter', sans-serif;">Даём гарантию 5 лет на конструкцию и фурнитуру. Сервис круглый год.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="py-20 md:py-28 lg:py-32 bg-white">
+  <div class="max-w-6xl mx-auto px-6 sm:px-8">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <div class="relative animate-on-scroll order-2 lg:order-1">
+        <div class="absolute -top-6 -left-6 w-32 h-32 rounded-2xl -z-10" style="background-color: #FFB200;"></div>
+        <div class="absolute -bottom-6 -right-6 w-40 h-40 rounded-2xl -z-10 opacity-20" style="background-color: #0B2545;"></div>
+        <div class="relative overflow-hidden rounded-2xl aspect-[4/5] shadow-2xl">
+          <img src="https://zgnpmogdjnnhpwewavnr.supabase.co/storage/v1/object/public/project-images/1a469850-4983-4bfc-951b-7dfbe195100d/e1273e3b-3e23-4222-a0f8-aaa155ebeba8.png" alt="Команда монтажников Балкон Плюс в офисе Иркутска" class="w-full h-full object-cover">
+        </div>
+        <div class="absolute -bottom-8 left-8 right-8 bg-white rounded-2xl p-6 shadow-2xl border border-slate-100">
+          <div class="flex items-center gap-4">
+            <div class="w-14 h-14 rounded-xl flex items-center justify-center" style="background-color: #0B2545;">
+              <i data-lucide="award" class="w-7 h-7" style="color: #FFB200;"></i>
+            </div>
+            <div>
+              <div class="text-2xl font-bold" style="font-family: 'Manrope', sans-serif; color: #0B2545;">12+ лет</div>
+              <div class="text-sm" style="font-family: 'Inter', sans-serif; color: #13315C;">опыта в Иркутске</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="animate-on-scroll order-1 lg:order-2">
+        <span class="inline-block px-4 py-1.5 rounded-full text-xs uppercase tracking-widest font-semibold mb-4" style="background-color: #FFB200; color: #0B2545; font-family: 'Inter', sans-serif;">О компании</span>
+        <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6" style="font-family: 'Manrope', sans-serif; color: #0B2545;">Балкон Плюс — ваш надёжный партнёр</h2>
+        <p class="text-lg mb-8 leading-relaxed" style="font-family: 'Inter', sans-serif; color: #1A1F2E;">Мы остекляем и отделываем балконы в Иркутске и Шелехове уже более 12 лет. Собственное производство, опытные мастера и материалы премиум-класса позволяют нам делать балконы, которые служат десятилетиями. Наш сайт: balconplusirk.ru</p>
+
+        <div class="space-y-4 mb-10">
+          <div class="flex items-start gap-4">
+            <div class="flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center" style="background-color: #F4F7FB;">
+              <i data-lucide="factory" class="w-5 h-5" style="color: #0B2545;"></i>
+            </div>
+            <div>
+              <h4 class="font-bold mb-1" style="font-family: 'Manrope', sans-serif; color: #0B2545;">Собственное производство</h4>
+              <p class="text-sm" style="font-family: 'Inter', sans-serif; color: #13315C;">Без посредников — цена напрямую от производителя в Иркутске.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center" style="background-color: #F4F7FB;">
+              <i data-lucide="users" class="w-5 h-5" style="color: #0B2545;"></i>
+            </div>
+            <div>
+              <h4 class="font-bold mb-1" style="font-family: 'Manrope', sans-serif; color: #0B2545;">Опытные мастера</h4>
+              <p class="text-sm" style="font-family: 'Inter', sans-serif; color: #13315C;">Монтажники со стажем от 7 лет. Аккуратная работа без следов на стенах.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center" style="background-color: #F4F7FB;">
+              <i data-lucide="badge-check" class="w-5 h-5" style="color: #0B2545;"></i>
+            </div>
+            <div>
+              <h4 class="font-bold mb-1" style="font-family: 'Manrope', sans-serif; color: #0B2545;">Гарантия 5 лет</h4>
+              <p class="text-sm" style="font-family: 'Inter', sans-serif; color: #13315C;">Официальная гарантия на профиль, фурнитуру и монтажные работы.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center" style="background-color: #F4F7FB;">
+              <i data-lucide="gem" class="w-5 h-5" style="color: #0B2545;"></i>
+            </div>
+            <div>
+              <h4 class="font-bold mb-1" style="font-family: 'Manrope', sans-serif; color: #0B2545;">Материалы премиум-класса</h4>
+              <p class="text-sm" style="font-family: 'Inter', sans-serif; color: #13315C;">Профиль REHAU, KBE, фурнитура Maco и Roto — только проверенные бренды.</p>
+            </div>
+          </div>
+        </div>
+
+        <a href="#contact" class="inline-flex items-center gap-3 px-8 py-4 rounded-xl font-semibold hover:opacity-90 transition-all" style="background-color: #0B2545; color: #ffffff; font-family: 'Inter', sans-serif;">
+          Получить консультацию
+          <i data-lucide="arrow-right" class="w-5 h-5"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="relative py-20 md:py-28 lg:py-32 overflow-hidden" style="background: linear-gradient(135deg, #0B2545 0%, #13315C 100%); font-family: 'Inter', sans-serif;">
+  <div class="absolute top-0 -left-40 w-[500px] h-[500px] rounded-full opacity-30 blur-3xl" style="background: #FFB200;"></div>
+  <div class="absolute bottom-0 -right-40 w-[600px] h-[600px] rounded-full opacity-20 blur-3xl" style="background: #13315C;"></div>
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full opacity-10 blur-3xl" style="background: #FFB200;"></div>
+
+  <div class="relative max-w-6xl mx-auto px-6 sm:px-8">
+    <div class="grid lg:grid-cols-5 gap-12 items-start">
+      
+      <div class="lg:col-span-2 text-white">
+        <span class="inline-block text-sm uppercase tracking-widest mb-4 px-4 py-1.5 rounded-full border border-white/20 backdrop-blur-sm" style="color: #FFB200;">Свяжитесь с нами</span>
+        <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight" style="font-family: 'Manrope', sans-serif;">
+          Рассчитаем <span style="color: #FFB200;">балкон</span> бесплатно
+        </h2>
+        <p class="text-lg text-white/80 leading-relaxed mb-10">
+          Оставьте заявку — наш мастер приедет на бесплатный замер в Иркутске или Шелехове. Подготовим точный расчёт за 30 минут.
+        </p>
+
+        <div class="space-y-5">
+          <a href="tel:+73952747755" class="flex items-center gap-4 group">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center backdrop-blur-xl border border-white/20 group-hover:scale-110 transition-transform" style="background: rgba(255, 178, 0, 0.15);">
+              <i data-lucide="phone" class="w-5 h-5" style="color: #FFB200;"></i>
+            </div>
+            <div>
+              <div class="text-xs uppercase tracking-wider text-white/50 mb-1">Городской</div>
+              <div class="text-lg font-semibold text-white group-hover:text-[#FFB200] transition-colors">+7 (3952) 74‒77‒55</div>
+            </div>
+          </a>
+
+          <a href="tel:+79087717676" class="flex items-center gap-4 group">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center backdrop-blur-xl border border-white/20 group-hover:scale-110 transition-transform" style="background: rgba(255, 178, 0, 0.15);">
+              <i data-lucide="smartphone" class="w-5 h-5" style="color: #FFB200;"></i>
+            </div>
+            <div>
+              <div class="text-xs uppercase tracking-wider text-white/50 mb-1">Мобильный</div>
+              <div class="text-lg font-semibold text-white group-hover:text-[#FFB200] transition-colors">+7‒908‒771‒76‒76</div>
+            </div>
+          </a>
+
+          <a href="https://balconplusirk.ru" class="flex items-center gap-4 group">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center backdrop-blur-xl border border-white/20 group-hover:scale-110 transition-transform" style="background: rgba(255, 178, 0, 0.15);">
+              <i data-lucide="globe" class="w-5 h-5" style="color: #FFB200;"></i>
+            </div>
+            <div>
+              <div class="text-xs uppercase tracking-wider text-white/50 mb-1">Сайт</div>
+              <div class="text-lg font-semibold text-white group-hover:text-[#FFB200] transition-colors">balconplusirk.ru</div>
+            </div>
+          </a>
+
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center backdrop-blur-xl border border-white/20 flex-shrink-0" style="background: rgba(255, 178, 0, 0.15);">
+              <i data-lucide="map-pin" class="w-5 h-5" style="color: #FFB200;"></i>
+            </div>
+            <div>
+              <div class="text-xs uppercase tracking-wider text-white/50 mb-1">Офис</div>
+              <div class="text-base font-medium text-white leading-relaxed">г. Шелехов, 2-й квартал, 18а<br/>офис 106, 1 этаж</div>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center backdrop-blur-xl border border-white/20" style="background: rgba(255, 178, 0, 0.15);">
+              <i data-lucide="clock" class="w-5 h-5" style="color: #FFB200;"></i>
+            </div>
+            <div>
+              <div class="text-xs uppercase tracking-wider text-white/50 mb-1">Работаем</div>
+              <div class="text-base font-medium text-white">Пн-Сб: 9:00 — 19:00</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-3">
+        <div class="relative rounded-3xl p-8 md:p-10 bg-white/10 backdrop-blur-2xl border border-white/20 shadow-2xl">
+          <div class="absolute -top-3 -right-3 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider" style="background: #FFB200; color: #0B2545;">
+            Замер бесплатно
+          </div>
+
+          <h3 class="text-2xl md:text-3xl font-bold text-white mb-2" style="font-family: 'Manrope', sans-serif;">Заявка на расчёт</h3>
+          <p class="text-white/60 mb-6">Перезвоним в течение 15 минут</p>
+
+          <a href="#name" id="quick-calc-cta"
+            class="w-full mb-8 py-4 px-6 rounded-xl font-bold text-base uppercase tracking-wider transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl flex items-center justify-center gap-3 group"
+            style="background: #FFB200; color: #0B2545; box-shadow: 0 10px 40px -10px rgba(255, 178, 0, 0.6);">
+            <i data-lucide="calculator" class="w-5 h-5"></i>
+            <span>Рассчитать стоимость сейчас</span>
+            <i data-lucide="arrow-down" class="w-5 h-5 group-hover:translate-y-1 transition-transform"></i>
+          </a>
+
+          <div class="relative flex items-center gap-4 mb-6">
+            <div class="flex-1 h-px bg-white/15"></div>
+            <span class="text-xs uppercase tracking-wider text-white/50 font-semibold">или заполните форму</span>
+            <div class="flex-1 h-px bg-white/15"></div>
+          </div>
+
+          <form id="contact-form" class="space-y-5">
+            <div>
+              <label for="name" class="block text-xs uppercase tracking-wider text-white/70 mb-2 font-semibold">Ваше имя</label>
+              <div class="relative">
+                <i data-lucide="user" class="w-5 h-5 absolute left-4 top-1/2 -translate-y-1/2 text-white/40"></i>
+                <input type="text" id="name" name="name" required 
+                  class="w-full pl-12 pr-4 py-4 rounded-xl bg-white/5 backdrop-blur-xl border border-white/20 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:border-transparent transition-all"
+                  style="--tw-ring-color: #FFB200;"
+                  placeholder="Например, Иван">
+              </div>
+            </div>
+
+            <div>
+              <label for="email" class="block text-xs uppercase tracking-wider text-white/70 mb-2 font-semibold">Email</label>
+              <div class="relative">
+                <i data-lucide="mail" class="w-5 h-5 absolute left-4 top-1/2 -translate-y-1/2 text-white/40"></i>
+                <input type="email" id="email" name="email" required 
+                  class="w-full pl-12 pr-4 py-4 rounded-xl bg-white/5 backdrop-blur-xl border border-white/20 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:border-transparent transition-all"
+                  style="--tw-ring-color: #FFB200;"
+                  placeholder="ivan@mail.ru">
+              </div>
+            </div>
+
+            <div>
+              <label for="message" class="block text-xs uppercase tracking-wider text-white/70 mb-2 font-semibold">Опишите ваш балкон</label>
+              <div class="relative">
+                <i data-lucide="message-square" class="w-5 h-5 absolute left-4 top-5 text-white/40"></i>
+                <textarea id="message" name="message" rows="4" required 
+                  class="w-full pl-12 pr-4 py-4 rounded-xl bg-white/5 backdrop-blur-xl border border-white/20 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:border-transparent transition-all resize-none"
+                  style="--tw-ring-color: #FFB200;"
+                  placeholder="Размеры, тип балкона, что планируете — остекление, отделка, вынос..."></textarea>
+              </div>
+            </div>
+
+            <button type="submit" id="submit-btn" 
+              class="w-full py-4 px-8 rounded-xl font-bold text-base uppercase tracking-wider transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl flex items-center justify-center gap-2 group"
+              style="background: #FFB200; color: #0B2545; box-shadow: 0 10px 40px -10px rgba(255, 178, 0, 0.5);">
+              <span>Получить расчёт</span>
+              <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+            </button>
+
+            <p id="form-status" class="text-sm text-center min-h-[20px]"></p>
+
+            <div class="flex items-center gap-2 justify-center pt-2 text-xs text-white/50">
+              <i data-lucide="shield-check" class="w-4 h-4" style="color: #FFB200;"></i>
+              <span>Ваши данные защищены. Не передаём третьим лицам.</span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="relative overflow-hidden" style="background: #0B2545; font-family: 'Inter', sans-serif;">
+  <div class="absolute top-0 right-0 w-96 h-96 rounded-full opacity-10 blur-3xl" style="background: #FFB200;"></div>
+  <div class="absolute bottom-0 left-1/4 w-80 h-80 rounded-full opacity-5 blur-3xl" style="background: #FFB200;"></div>
+
+  <div class="relative max-w-6xl mx-auto px-6 sm:px-8 py-16 md:py-20">
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+      
+      <div class="lg:col-span-1">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-11 h-11 rounded-xl flex items-center justify-center" style="background: #FFB200;">
+            <i data-lucide="home" class="w-6 h-6" style="color: #0B2545;"></i>
+          </div>
+          <div>
+            <div class="text-xl font-bold text-white" style="font-family: 'Manrope', sans-serif;">Балкон Плюс</div>
+            <div class="text-xs uppercase tracking-widest" style="color: #FFB200;">Иркутск • Шелехов</div>
+          </div>
+        </div>
+        <p class="text-white/60 leading-relaxed text-sm mb-6">
+          Остекление и отделка балконов под ключ. 12+ лет на рынке, собственное производство, гарантия 5 лет.
+        </p>
+        <div class="mb-6">
+          <a href="https://balconplusirk.ru" class="inline-flex items-center gap-2 text-sm text-white/70 hover:text-[#FFB200] transition-colors">
+            <i data-lucide="globe" class="w-4 h-4"></i>
+            <span>balconplusirk.ru</span>
+          </a>
+        </div>
+        <div class="flex gap-3">
+          <a href="#" class="w-10 h-10 rounded-lg flex items-center justify-center bg-white/5 border border-white/10 backdrop-blur-xl text-white/70 hover:text-[#FFB200] hover:-translate-y-1 hover:border-[#FFB200]/50 transition-all duration-300">
+            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+          </a>
+          <a href="#" class="w-10 h-10 rounded-lg flex items-center justify-center bg-white/5 border border-white/10 backdrop-blur-xl text-white/70 hover:text-[#FFB200] hover:-translate-y-1 hover:border-[#FFB200]/50 transition-all duration-300">
+            <i data-lucide="send" class="w-5 h-5"></i>
+          </a>
+          <a href="#" class="w-10 h-10 rounded-lg flex items-center justify-center bg-white/5 border border-white/10 backdrop-blur-xl text-white/70 hover:text-[#FFB200] hover:-translate-y-1 hover:border-[#FFB200]/50 transition-all duration-300">
+            <i data-lucide="message-circle" class="w-5 h-5"></i>
+          </a>
+          <a href="#" class="w-10 h-10 rounded-lg flex items-center justify-center bg-white/5 border border-white/10 backdrop-blur-xl text-white/70 hover:text-[#FFB200] hover:-translate-y-1 hover:border-[#FFB200]/50 transition-all duration-300">
+            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="text-white font-bold mb-5 text-sm uppercase tracking-wider" style="font-family: 'Manrope', sans-serif;">Услуги</h4>
+        <ul class="space-y-3">
+          <li><a href="#services" class="text-white/60 hover:text-[#FFB200] transition-colors hover:-translate-y-0.5 inline-block duration-300 text-sm">Остекление балконов</a></li>
+          <li><a href="#services" class="text-white/60 hover:text-[#FFB200] transition-colors hover:-translate-y-0.5 inline-block duration-300 text-sm">Лоджии с выносом</a></li>
+          <li><a href="#services" class="text-white/60 hover:text-[#FFB200] transition-colors hover:-translate-y-0.5 inline-block duration-300 text-sm">Пластиковые окна</a></li>
+          <li><a href="#services" class="text-white/60 hover:text-[#FFB200] transition-colors hover:-translate-y-0.5 inline-block duration-300 text-sm">Термо входные двери</a></li>
+          <li><a href="#services" class="text-white/60 hover:text-[#FFB200] transition-colors hover:-translate-y-0.5 inline-block duration-300 text-sm">Межкомнатные двери</a></li>
+          <li><a href="#services" class="text-white/60 hover:text-[#FFB200] transition-colors hover:-translate-y-0.5 inline-block duration-300 text-sm">Ремонт окон</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-white font-bold mb-5 text-sm uppercase tracking-wider" style="font-family: 'Manrope', sans-serif;">Компания</h4>
+        <ul class="space-y-3">
+          <li><a href="#about" class="text-white/60 hover:text-[#FFB200] transition-colors hover:-translate-y-0.5 inline-block duration-300 text-sm">О компании</a></li>
+          <li><a href="#gallery" class="text-white/60 hover:text-[#FFB200] transition-colors hover:-translate-y-0.5 inline-block duration-300 text-sm">Наши работы</a></li>
+          <li><a href="#process" class="text-white/60 hover:text-[#FFB200] transition-colors hover:-translate-y-0.5 inline-block duration-300 text-sm">Как мы работаем</a></li>
+          <li><a href="#stats" class="text-white/60 hover:text-[#FFB200] transition-colors hover:-translate-y-0.5 inline-block duration-300 text-sm">Достижения</a></li>
+          <li><a href="#contact" class="text-white/60 hover:text-[#FFB200] transition-colors hover:-translate-y-0.5 inline-block duration-300 text-sm">Гарантия 5 лет</a></li>
+          <li><a href="#contact" class="text-white/60 hover:text-[#FFB200] transition-colors hover:-translate-y-0.5 inline-block duration-300 text-sm">Вызвать замерщика</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-white font-bold mb-5 text-sm uppercase tracking-wider" style="font-family: 'Manrope', sans-serif;">Контакты</h4>
+        <ul class="space-y-4">
+          <li class="flex items-start gap-3">
+            <i data-lucide="map-pin" class="w-4 h-4 mt-1 flex-shrink-0" style="color: #FFB200;"></i>
+            <span class="text-white/60 text-sm leading-relaxed">г. Шелехов, 2-й квартал, 18а, офис 106</span>
+          </li>
+          <li class="flex items-center gap-3">
+            <i data-lucide="phone" class="w-4 h-4 flex-shrink-0" style="color: #FFB200;"></i>
+            <a href="tel:+73952747755" class="text-white/60 hover:text-[#FFB200] transition-colors text-sm">+7 (3952) 74‒77‒55</a>
+          </li>
+          <li class="flex items-center gap-3">
+            <i data-lucide="smartphone" class="w-4 h-4 flex-shrink-0" style="color: #FFB200;"></i>
+            <a href="tel:+79087717676" class="text-white/60 hover:text-[#FFB200] transition-colors text-sm">+7‒908‒771‒76‒76</a>
+          </li>
+          <li class="flex items-center gap-3">
+            <i data-lucide="globe" class="w-4 h-4 flex-shrink-0" style="color: #FFB200;"></i>
+            <a href="https://balconplusirk.ru" class="text-white/60 hover:text-[#FFB200] transition-colors text-sm">balconplusirk.ru</a>
+          </li>
+          <li class="flex items-center gap-3">
+            <i data-lucide="clock" class="w-4 h-4 flex-shrink-0" style="color: #FFB200;"></i>
+            <span class="text-white/60 text-sm">Пн-Сб: 9:00 — 19:00</span>
+          </li>
+        </ul>
+
+        <a href="#contact" class="mt-6 inline-flex items-center gap-2 px-5 py-3 rounded-xl font-bold text-sm transition-all hover:scale-105" style="background: #FFB200; color: #0B2545;">
+          <i data-lucide="calculator" class="w-4 h-4"></i>
+          <span>Рассчитать</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="mt-14 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-white/50 text-sm">
+        © 2024 Балкон Плюс • balconplusirk.ru — Все права защищены.
+      </p>
+      <div class="flex items-center gap-6 text-sm">
+        <a href="#" class="text-white/50 hover:text-[#FFB200] transition-colors">Политика конфиденциальности</a>
+        <a href="#" class="text-white/50 hover:text-[#FFB200] transition-colors">Договор оферты</a>
+      </div>
+    </div>
+  </div>
+</footer>
+</div>
+
+<script>
+  lucide.createIcons();
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+  const contactForm = document.getElementById('contact-form');
+  const formStatus = document.getElementById('form-status');
+  const submitBtn = document.getElementById('submit-btn');
+  if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const originalText = submitBtn.textContent;
+      submitBtn.textContent = 'Sending...';
+      submitBtn.disabled = true;
+      try {
+        const formData = new FormData(contactForm);
+        const response = await fetch('https://zgnpmogdjnnhpwewavnr.supabase.co/functions/v1/contact-form-submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            projectId: '{{PROJECT_ID}}',
+            name: formData.get('name'),
+            email: formData.get('email'),
+            message: formData.get('message')
+          })
+        });
+        const data = await response.json();
+        if (response.ok) {
+          formStatus.textContent = 'Message sent successfully!';
+          formStatus.className = 'text-sm text-green-600';
+          contactForm.reset();
+        } else {
+          formStatus.textContent = data.error || 'Failed to send message.';
+          formStatus.className = 'text-sm text-red-600';
+        }
+      } catch (error) {
+        formStatus.textContent = 'Network error. Please try again.';
+        formStatus.className = 'text-sm text-red-600';
+      } finally {
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+      }
+    });
+  }
+</script>
+</body>
+</html>
